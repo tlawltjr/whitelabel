@@ -1,13 +1,16 @@
 package com.whitelabel.whitelabel.service;
 
-import java.util.Map;
-
+import org.json.simple.parser.ParseException;
 import org.springframework.stereotype.Service;
+import org.springframework.ui.Model;
 
 import com.whitelabel.whitelabel.dto.WLjmtDTO;
 
 @Service
 public interface GetAPIService {
+
 	
-	Map<String, Object> getJSON(WLjmtDTO jmtDTO) throws Exception;
+	void getAPI(String search, Model model) throws ParseException;
+		
+	
 }
