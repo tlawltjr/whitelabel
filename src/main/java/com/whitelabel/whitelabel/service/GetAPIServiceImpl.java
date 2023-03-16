@@ -30,6 +30,10 @@ public class GetAPIServiceImpl implements GetAPIService {
 	@Override
 	public void getAPI(String search, Model model) throws ParseException {
 
+		WLjmtDTO dto = null;
+		
+		List<WLjmtDTO> result = new ArrayList<>();
+		
 		String requestResult = search;
 
 		RestTemplate restTemplate = new RestTemplate();
@@ -67,12 +71,12 @@ public class GetAPIServiceImpl implements GetAPIService {
 
 			JSONArray getRow = (JSONArray) json.get("row");
 			System.out.println("get row ==========" + getRow);
-
+		
 			for (int j = 0; j < getRow.size(); j++) {
 				JSONObject rowJson = (JSONObject) getRow.get(j);
 				System.out.println("sigunNM-==========" + rowJson.get("SIGUN_NM"));
 
-				WLjmtDTO dto = WLjmtDTO.builder().SIGUN_NM((String) rowJson.get("SIGUN_NM"))
+				dto = WLjmtDTO.builder().SIGUN_NM((String) rowJson.get("SIGUN_NM"))
 						.RESTRT_NM((String) rowJson.get("RESTRT_NM"))
 						.REPRSNT_FOOD_NM((String) rowJson.get("REPRSNT_FOOD_NM"))
 						.TASTFDPLC_TELNO((String) rowJson.get("TASTFDPLC_TELNO"))
@@ -80,14 +84,13 @@ public class GetAPIServiceImpl implements GetAPIService {
 						.REFINE_ROADNM_ADDR((String) rowJson.get("REFINE_ROADNM_ADDR"))
 						.REFINE_ZIP_CD((String) rowJson.get("REFINE_ZIP_CD")).build();
 
-				List<WLjmtDTO> result = new ArrayList<>();
-
 				result.add(dto);
 
-				model.addAttribute("getAPI", result);
-
-			}
-		}
-	}
+			}//inner for
+		}//outer for
+		
+		
+		model.addAttribute("getAPI", result);
+	}//end method
 
 }
