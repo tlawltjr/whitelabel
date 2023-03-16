@@ -55,12 +55,12 @@ public class WhiteLabelController {
 		
 	}
 
-	@GetMapping("/listAPI")
-	public void getMapping() {
-
-	}
+//	@GetMapping("/listAPI")
+//	public void getMapping() {
+//
+//	}
 	
-	@PostMapping("/listAPI")
+	@GetMapping("/listAPI")
 	public void jmt(@RequestParam("search") String search, Model model) throws ParseException{
 	       
 		getAPIService.getAPI(search, model);
