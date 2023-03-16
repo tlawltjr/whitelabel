@@ -65,5 +65,11 @@ public class WhiteLabelController {
 	       
 		getAPIService.getAPI(search, model);
 			
-	    } 
+	}
+	
+	@GetMapping("/redirect")
+	public String redirect() {
+		return "redirect:/whitelabel/listGuest";
+	}
+	
 }

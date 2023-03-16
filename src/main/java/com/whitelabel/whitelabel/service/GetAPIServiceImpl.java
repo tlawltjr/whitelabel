@@ -42,9 +42,13 @@ public class GetAPIServiceImpl implements GetAPIService {
 		HttpEntity<String> entity = new HttpEntity<String>(header);
 
 		String url = "https://openapi.gg.go.kr/PlaceThatDoATasteyFoodSt";
-		UriComponents uri = UriComponentsBuilder.fromHttpUrl(url).queryParam("key", "f57dd50ef40140fb95b379122a94d4f3")
-				.queryParam("type", "json").queryParam("pIndex", "1").queryParam("pSize", "50")
-				.query("SIGUN_NM=" + requestResult).build(false);
+		UriComponents uri = UriComponentsBuilder.fromHttpUrl(url)
+							.queryParam("key", "f57dd50ef40140fb95b379122a94d4f3")
+							.queryParam("type", "json")
+							.queryParam("pIndex", "1")
+							.queryParam("pSize", "50")
+							.query("SIGUN_NM=" + requestResult)
+							.build(false);
 
 		System.out.println("uri------" + uri);
 
@@ -63,7 +67,11 @@ public class GetAPIServiceImpl implements GetAPIService {
 
 		JSONArray jarr = (JSONArray) jobj.get("PlaceThatDoATasteyFoodSt");
 		System.out.println("jarr-------" + jarr);
-
+		
+		if(jarr == null) {
+			result.add(null);
+		}else {
+		
 		for (int i = 1; i < jarr.size(); i++) {
 
 			JSONObject json = (JSONObject) jarr.get(i);
@@ -88,7 +96,7 @@ public class GetAPIServiceImpl implements GetAPIService {
 
 			}//inner for
 		}//outer for
-		
+		}//else
 		
 		model.addAttribute("getAPI", result);
 	}//end method

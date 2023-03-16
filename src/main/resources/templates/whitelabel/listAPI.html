@@ -138,11 +138,67 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-light" style="width: 30000;">
+    <div class="album py-5 bg-light" >
         <div class="container">
-
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
-    			<div th:each="dto : ${getAPI}" class="col">
+			<section class="py-6 text-left container">
+			<!-- 
+				<button class="btn btn-primary collapse-toggle" type="button"
+					data-bs-toggle="collapse" data-bs-target="#collapseMenu"
+					id="collapseBtn">경기</button>
+					
+			-->
+			 <button class="btn btn-primary rounded-pill border-0 shadow-sm" type="button" 
+			 data-bs-toggle="collapse" data-bs-target="#collapseMenu" id="collapseBtn"
+			 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px;">
+			 경기
+			 </button>
+				<div class="collapse" id="collapseMenu">
+					<a class="collapse-item" href="/whitelabel/listAPI?search=가평군" 
+					style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px;">가평군</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=고양시">고양시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=과천시">과천시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=광명시">광명시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=광주시">광주시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=구리시">구리시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=군포시">군포시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=김포시">김포시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=남양주시">남양주시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=동두천시">동두천시</a><br>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=부천시">부천시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=성남시">성남시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=수원시">수원시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=시흥시">시흥시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=안산시">안산시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=안성시">안성시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=안양시">안양시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=양주시">양주시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=양평군">양평군</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=여주시">여주시</a><br>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=연천군">연천군</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=오산시">오산시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=용인시">용인시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=의왕시">의왕시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=의정부시">의정부시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=이천시">이천시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=파주시">파주시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=평택시">평택시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=포천시">포천시</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=하남시">하남시</a><br>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=화성시">화성시</a>
+				</div>
+			</section>
+            
+           
+          
+		        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		        	
+		            <div th:each="dto : ${getAPI}" th:if="${dto == null}" >
+    					<script>
+       					alert("해당 시군의 맛집 정보가 아직 없습니다.");
+        				window.location.href='/whitelabel/redirect';
+    					</script>
+					</div>
+					<div th:if="${dto != null}" th:each="dto : ${getAPI}" class="col">
         			<div class="card shadow-sm" th:width="300">
           				<div class="card-body">
           		      	<h3 class="card-title" th:text="${dto.RESTRT_NM}"></h3>
@@ -158,12 +214,11 @@
            				</div>
         			</div>
     			</div>
+    			
 			</div>
-
-
+			
             </div>
         </div>
-    </div>
 
 </main>
 
