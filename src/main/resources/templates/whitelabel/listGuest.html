@@ -1,13 +1,20 @@
 <!DOCTYPE html>
-<html xmlns:th="http://www.thymeleaf.org">
+<html xmlns:th="http://www.thymeleaf.org"
+	  xmlns:layout="http://www.ultraq.net.nz/thymeleaf/layout"
+      layout:decorate="/layout/basic3">
 <head>
 <meta charset="UTF-8">
 <title>Insert title here</title>
 </head>
 <body>
-<form action="/whitelabel/listAPI" method="post">
-  <input type="text" id="search" name="search" placeholder="지역명을 입력하세요."></input>
-  <button type="submit">요청</button>
-</form>
+<th:block th:replace="whitelabel/basic3::header"></th:block>
+	<div layout:fragment="content">
+	
+		<form action="/whitelabel/listAPI" method="post">
+  			<input type="text" id="search" name="search" placeholder="지역명을 입력하세요."></input>
+  			<button type="submit">요청</button>
+		</form>
+	</div>
+		
 </body>
 </html>
