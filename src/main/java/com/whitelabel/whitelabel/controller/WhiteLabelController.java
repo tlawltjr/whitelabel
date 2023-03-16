@@ -34,7 +34,7 @@ public class WhiteLabelController {
 	@Autowired(required = true)
 	private GetAPIService getAPIService;
 	
-	@GetMapping("/")
+	@GetMapping({"","/"})
 	public String index(RedirectAttributes redirectAttributes) {
 		
 		return "redirect:/whitelabel/index";

@@ -76,22 +76,7 @@
             white-space: nowrap;
             -webkit-overflow-scrolling: touch;
         }
-        header {
-  		position: fixed;
-  		top: 0;
-  		left: 0;
- 		width: 100%;
-  		background-color: #ccc;
-		}
-
-		footer {
- 		position: fixed;
-  		bottom: 0;
-  		left: 0;
-  		width: 100%;
-  		height: 10px;
-  		background-color: #ccc;
-		}
+    
     </style>
 
 
@@ -153,20 +138,20 @@
         </div>
     </section>
 
-    <div class="album py-5 bg-light">
+    <div class="album py-5 bg-light" style="width: 30000;">
         <div class="container">
 
-            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+            <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
     			<div th:each="dto : ${getAPI}" class="col">
         			<div class="card shadow-sm" th:width="300">
           				<div class="card-body">
-          		      	<h5 class="card-title" th:text="${dto.RESTRT_NM}"></h5>
+          		      	<h3 class="card-title" th:text="${dto.RESTRT_NM}"></h3>
               		  	지역 정보 : <p class="card-text" th:text="${dto.SIGUN_NM}"></p>
-              		  	음식 종류 : <p class="card-text" th:text="${dto.REPRSNT_FOOD_NM}"></p>
+              		  	음식 : <p class="card-text" th:text="${dto.REPRSNT_FOOD_NM}"></p>
               		  	우편 번호 : <p class="card-text" th:text="${dto.REFINE_ZIP_CD}"></p>
               		  	전화 번호 : <p class="card-text" th:text="${dto.TASTFDPLC_TELNO}"></p>
-              		  	도로명 주소 : <p class="card-text" th:text="${dto.REFINE_LOTNO_ADDR}"></p>
-              		  	지번 주소 : <p class="card-text" th:text="${dto.REFINE_ROADNM_ADDR}"></p>
+              		  	지번 주소 : <p class="card-text" th:text="${dto.REFINE_LOTNO_ADDR}"></p>
+              		  	도로명 주소 : <p class="card-text" th:text="${dto.REFINE_ROADNM_ADDR}"></p>
              			   <div class="d-flex justify-content-between align-items-center">
                    				<small class="text-muted" ></small>
                				</div>
