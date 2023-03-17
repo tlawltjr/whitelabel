@@ -148,13 +148,11 @@
 					
 			-->
 			 <button class="btn btn-primary rounded-pill border-0 shadow-sm" type="button" 
-			 data-bs-toggle="collapse" data-bs-target="#collapseMenu" id="collapseBtn"
-			 style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px;">
+			 data-bs-toggle="collapse" data-bs-target="#collapseMenu" id="collapseBtn">
 			 경기
 			 </button>
 				<div class="collapse" id="collapseMenu">
-					<a class="collapse-item" href="/whitelabel/listAPI?search=가평군" 
-					style="font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif; font-size: 16px;">가평군</a>
+					<a class="collapse-item" href="/whitelabel/listAPI?search=가평군">가평군</a>
 					<a class="collapse-item" href="/whitelabel/listAPI?search=고양시">고양시</a>
 					<a class="collapse-item" href="/whitelabel/listAPI?search=과천시">과천시</a>
 					<a class="collapse-item" href="/whitelabel/listAPI?search=광명시">광명시</a>
@@ -190,7 +188,7 @@
             
            
           
-		        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-3 g-3">
+		        <div class="row row-cols-1 row-cols-sm-2 row-cols-md-2 g-3">
 		        	
 		            <div th:each="dto : ${getAPI}" th:if="${dto == null}" >
     					<script>
@@ -211,6 +209,24 @@
              			   <div class="d-flex justify-content-between align-items-center">
                    				<small class="text-muted" ></small>
                				</div>
+               				<button class="btn btn-primary" onclick="openMap()">
+  							지도 보기
+							</button>
+							
+								<script>
+								    // 버튼이 위치한 부분에서 dto 객체를 가져와서 data에 저장
+								    const data = {
+								        lat: [[${dto.REFINE_WGS84_LAT}]],
+								        lon: [[${dto.REFINE_WGS84_LOGT}]]
+								    };
+								
+								    function openMap() {
+								        // data 객체를 URL에 추가하여 새 창을 열기
+								        const url = '/whitelabel/mapTest?lat=' + data.lat + '&lon=' + data.lon;
+								        window.location.href = url;
+								    }
+								</script>
+							
            				</div>
         			</div>
     			</div>

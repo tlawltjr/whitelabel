@@ -72,4 +72,12 @@ public class WhiteLabelController {
 		return "redirect:/whitelabel/listGuest";
 	}
 	
+	@GetMapping("/mapTest")
+	public void map() {
+		
+	}
+	
+	
+	
+	
 }

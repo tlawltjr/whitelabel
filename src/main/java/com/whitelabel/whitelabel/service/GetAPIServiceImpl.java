@@ -90,7 +90,10 @@ public class GetAPIServiceImpl implements GetAPIService {
 						.TASTFDPLC_TELNO((String) rowJson.get("TASTFDPLC_TELNO"))
 						.REFINE_LOTNO_ADDR((String) rowJson.get("REFINE_LOTNO_ADDR"))
 						.REFINE_ROADNM_ADDR((String) rowJson.get("REFINE_ROADNM_ADDR"))
-						.REFINE_ZIP_CD((String) rowJson.get("REFINE_ZIP_CD")).build();
+						.REFINE_ZIP_CD((String) rowJson.get("REFINE_ZIP_CD"))
+						.REFINE_WGS84_LAT((String) rowJson.get("REFINE_WGS84_LAT"))
+						.REFINE_WGS84_LOGT((String) rowJson.get("REFINE_WGS84_LOGT"))
+						.build();
 
 				result.add(dto);
 

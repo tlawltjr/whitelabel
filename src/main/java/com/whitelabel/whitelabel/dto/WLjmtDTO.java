@@ -14,6 +14,8 @@ public class WLjmtDTO {
 	private String REFINE_LOTNO_ADDR;
 	private String REFINE_ROADNM_ADDR;
 	private String REFINE_ZIP_CD;
+	private String REFINE_WGS84_LAT;
+	private String REFINE_WGS84_LOGT;
 	
 	
 	
